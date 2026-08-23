@@ -1,0 +1,35 @@
+# ธุรกิจสหกรณ์ออมทรัพย์ (Savings Cooperative)
+
+โดยมีระบบบัญชี ฝาก-ถอน-โอน และสมาชิกจะสามารถทำธุรกรรมได้ทีละรายการ (ฝาก/ถอน/โอน) มีการตรวจสอบยอดเงินเพียงพอก่อนทำรายการ คำนวณดอกเบี้ยจากเงินคงเหลือในบัญชีในช่วงสิ้นปี
+
+import random
+import time
+from datetime import datetime, timedelta
+!pip install Faker
+from faker import Faker
+fake = Faker("th_TH")
+random.seed(1)
+import pandas as pd
+import matplotlib, os, shutil
+import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
+import seaborn as sns
+
+# 1. ติดตั้งฟอนต์ภาษาไทย
+!apt-get -y install fonts-thai-tlwg
+
+# 2. ล้าง cache ของ matplotlib เพื่ออัปเดตฟอนต์ใหม่
+cache_dir = matplotlib.get_cachedir()
+if os.path.exists(cache_dir):
+    shutil.rmtree(cache_dir)
+
+# 3. ลงทะเบียนฟอนต์ใหม่เข้ากับ FontManager
+font_path = '/usr/share/fonts/truetype/tlwg/Loma.ttf'
+if os.path.exists(font_path):
+    fm.fontManager.addfont(font_path)
+
+# 4. ตั้งค่าฟอนต์หลัก
+plt.rcParams['font.family'] = 'Loma'
+plt.rcParams['axes.unicode_minus'] = False
+
+print("ตั้งค่าระบบฟอนต์ภาษาไทยสำเร็จ!")
