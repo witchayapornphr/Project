@@ -1,0 +1,10 @@
+class Member:
+    """ข้อมูลสมาชิกธนาคารออมทรัพย์"""
+    def __init__(self, member_id, customer_name, citizen_id="-", phone_number="-"):
+        self.member_id = member_id
+        self.customer_name = customer_name
+        self.citizen_id = citizen_id
+        self.phone_number = phone_number
+
+    def get_info(self):
+        return f"ลูกค้า ID: {self.member_id} | ชื่อ: {self.customer_name} | เลขบัตรประชาชน: {self.citizen_id} | เบอร์โทร: {self.phone_number}"
